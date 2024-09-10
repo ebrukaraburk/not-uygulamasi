@@ -72,6 +72,7 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+
     implementation("androidx.navigation:navigation-compose:2.8.0")
     implementation ("com.google.code.gson:gson:2.10.1")
     implementation(platform("androidx.compose:compose-bom:2024.01.00"))  // Compose BOM'u ekleyin
@@ -88,6 +89,5 @@ dependencies {
     kapt("androidx.room:room-compiler:2.6.1")
     implementation("androidx.room:room-ktx:2.6.1")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.1")
-
 
 }
