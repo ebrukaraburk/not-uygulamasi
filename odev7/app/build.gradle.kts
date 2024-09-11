@@ -1,7 +1,8 @@
 plugins {
-    id("com.android.application")    // Doğrudan id kullanarak Android uygulaması plugin'i eklenir
-    id("org.jetbrains.kotlin.android")
+    alias(libs.plugins.android.application)
+    alias(libs.plugins.jetbrains.kotlin.android)
     id("kotlin-kapt")
+    id("dagger.hilt.android.plugin")
 
 }
 
@@ -52,19 +53,13 @@ android {
 }
 
 dependencies {
-
-    implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.ui)
-
-    implementation("androidx.compose.ui:ui")
-    implementation("androidx.compose.ui:ui-tooling-preview")
-    implementation("androidx.compose.material3:material3")
-
+    implementation(libs.androidx.ui.graphics)
+    implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
-
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -73,14 +68,12 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 
-    implementation("androidx.navigation:navigation-compose:2.8.0")
-    implementation ("com.google.code.gson:gson:2.10.1")
-    implementation(platform("androidx.compose:compose-bom:2024.01.00"))  // Compose BOM'u ekleyin
+    implementation("androidx.navigation:navigation-compose:2.7.6")
+    implementation ("com.google.code.gson:gson:2.10")
 
-
-    implementation("androidx.lifecycle:lifecycle-viewmodel:2.8.5")
-    implementation("androidx.activity:activity-ktx:1.9.2")
-    implementation("androidx.compose.runtime:runtime-livedata:1.7.0")
+    implementation("androidx.lifecycle:lifecycle-viewmodel:2.5.1")
+    implementation("androidx.activity:activity-ktx:1.6.1")
+    implementation("androidx.compose.runtime:runtime-livedata:1.5.4")
 
     implementation("com.google.dagger:hilt-android:2.48")
     kapt("com.google.dagger:hilt-android-compiler:2.48")
@@ -88,6 +81,5 @@ dependencies {
     implementation ("androidx.room:room-runtime:2.6.1")
     kapt("androidx.room:room-compiler:2.6.1")
     implementation("androidx.room:room-ktx:2.6.1")
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.1")
-
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.7.0")
 }
